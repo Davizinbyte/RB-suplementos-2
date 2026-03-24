@@ -1426,6 +1426,21 @@ function sv(id,val){var el=document.getElementById(id);if(el)el.value=val||'';}
 
 // INIT
 updateUserNav();
-initFirebase();
+// Wait for Firebase SDK to load before initializing
+window.addEventListener('load', function() {
+  if(typeof firebase !== 'undefined') {
+    initFirebase();
+  } else {
+    // Retry after short delay if SDK not ready yet
+    setTimeout(function() {
+      if(typeof firebase !== 'undefined') {
+        initFirebase();
+      } else {
+        console.warn('Firebase SDK nao carregou, usando localStorage');
+        useFallback();
+      }
+    }, 1000);
+  }
+});
 </script>
 </body></html>
