@@ -887,7 +887,7 @@ function loadFromFb(){
   _db.collection('store').doc('config').get().then(function(snap){
     if(snap.exists){
       var d=snap.data();
-      if(d.prods)prods=d.prods;
+      if(d.prods)prods=deserializeProds(d.prods);
       if(d.contact)contact=d.contact;
       if(d.homeData)homeData=d.homeData;
       if(d.creds)creds=d.creds;
@@ -907,9 +907,27 @@ function loadFromFb(){
   });
 }
 
+function serializeProds(arr){
+  return arr.map(function(p){
+    var cp=Object.assign({},p);
+    // Convert nested arrays to JSON strings for Firestore
+    if(cp.nutri)cp.nutri=JSON.stringify(cp.nutri);
+    if(cp.benefits)cp.benefits=JSON.stringify(cp.benefits);
+    return cp;
+  });
+}
+function deserializeProds(arr){
+  return arr.map(function(p){
+    var cp=Object.assign({},p);
+    if(typeof cp.nutri==='string'){try{cp.nutri=JSON.parse(cp.nutri);}catch(e){cp.nutri=[];}}
+    if(typeof cp.benefits==='string'){try{cp.benefits=JSON.parse(cp.benefits);}catch(e){cp.benefits=[];}}
+    return cp;
+  });
+}
 function fbSaveCfg(){
   if(_fbReady){
-    _db.collection('store').doc('config').set({prods:prods,contact:contact,homeData:homeData,creds:creds}).catch(function(e){console.warn('Erro ao salvar config:',e);});
+    var payload={prods:serializeProds(prods),contact:contact,homeData:homeData,creds:creds};
+    _db.collection('store').doc('config').set(payload).catch(function(e){console.warn('Erro ao salvar config:',e);});
   }else{
     localStorage.setItem('rb_prods',JSON.stringify(prods));
     localStorage.setItem('rb_contact',JSON.stringify(contact));
