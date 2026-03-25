@@ -390,7 +390,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 </head><body>
-<div id="g_id_onload" data-client_id="" data-callback="handleGoogleCredential" data-auto_prompt="false"></div>
+<div id="g_id_onload" data-client_id="700551558544-cj8iea6octmt263an5nlos1oq0pp1gi4.apps.googleusercontent.com" data-callback="handleGoogleCredential" data-auto_prompt="false"></div>
 <nav><div class="nav-inner">
   <a class="logo" onclick="go('home')"><span class="logo-rb">RB</span>&nbsp;Suplementos</a>
   <ul class="nav-links">
@@ -1339,8 +1339,17 @@ function handleGoogleCredential(response){
   }catch(ex){toast('Aviso','Falha no login com Google.');}
 }
 function triggerGoogle(){
-  var cid=localStorage.getItem('rb_google_client_id')||'';
-  if(!cid){showModal('\u2139\uFE0F','Google Login','Configure o Google Client ID no painel Admin - Seguranca.','OK');return;}
+  var cid='700551558544-cj8iea6octmt263an5nlos1oq0pp1gi4.apps.googleusercontent.com';
+  if(typeof google!=='undefined'&&google.accounts){
+    google.accounts.id.initialize({client_id:cid,callback:handleGoogleCredential,ux_mode:'popup'});
+    google.accounts.id.prompt(function(n){
+      if(n.isNotDisplayed()||n.isSkippedMoment()){
+        // Fallback: renderizar botao
+        toast('Aviso','Popup bloqueado. Tente desbloquear popups no navegador.');
+      }
+    });
+  }
+}
   if(typeof google!=='undefined'&&google.accounts){google.accounts.id.initialize({client_id:cid,callback:handleGoogleCredential,ux_mode:'popup'});google.accounts.id.prompt();}
 }
 
