@@ -406,44 +406,44 @@ img {
 }
 
 /* ─── TABLETS E CELULARES (até 768px) ────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   🔧 CORREÇÃO URGENTE - Esconde menu desktop no mobile
+   ═══════════════════════════════════════════════════════════════════ */
+
 @media (max-width: 768px) {
   
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 1. HEADER/NAVEGAÇÃO                                              */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  header {
-    padding: 12px 15px !important;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  /* Logo */
-  header .logo,
-  header h1 {
-    font-size: 20px !important;
-    margin: 0;
-  }
-  
-  /* Botões do header (DAVI, ADMIN) */
-  header .nav-btns,
-  header .user-btns {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  
-  #navUserBtn,
-  #navAdmBtn {
-    padding: 8px 14px !important;
-    font-size: 13px !important;
-    white-space: nowrap;
-  }
-  
-  /* Esconde menu desktop */
-  header nav > ul {
+  /* Esconde completamente o menu desktop */
+  header nav,
+  header nav ul,
+  nav > ul,
+  .nav-menu,
+  .desktop-menu {
     display: none !important;
   }
+  
+  /* Header mobile - só logo + botões */
+  header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 15px !important;
+    flex-wrap: wrap !important;
+  }
+  
+  /* Logo ocupa espaço */
+  header .logo {
+    flex: 1;
+    font-size: 18px !important;
+  }
+  
+  /* Botões do lado direito */
+  header .nav-btns,
+  header .user-btns {
+    display: flex !important;
+    gap: 8px;
+  }
+}
+
   
   /* ─────────────────────────────────────────────────────────────── */
   /* 2. MENU MOBILE LATERAL (#mobMenu)                                */
