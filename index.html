@@ -386,117 +386,283 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
 @media(max-width:600px){.pgrid{grid-template-columns:repeat(2,1fr)}.cats-grid{grid-template-columns:repeat(2,1fr)}.bgrid{grid-template-columns:1fr}.fmain{grid-template-columns:1fr}.fbot{flex-direction:column;gap:6px;text-align:center}.fgrid,.agrid,.cgrid{grid-column:1/-1}.pinner{padding:36px 28px}.apanel{width:100vw}.fav-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:400px){.pgrid{grid-template-columns:1fr}}
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE RESPONSIVE - ADICIONAR NO FINAL DO CSS
+   MOBILE RESPONSIVE - RB SUPLEMENTOS
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Tablets e celulares maiores (até 768px) */
+/* Ajustes gerais mobile */
 @media (max-width: 768px) {
   
-  /* Layout geral */
-  body {
-    font-size: 14px;
+  /* ─── HEADER/NAVEGAÇÃO ─────────────────────────────────────────── */
+  
+  header {
+    padding: 10px 15px !important;
   }
   
-  /* Hero/Banner principal */
+  /* Logo menor no mobile */
+  header .logo {
+    font-size: 18px !important;
+  }
+  
+  /* Menu desktop - ESCONDER no mobile */
+  header nav ul {
+    display: none !important;
+  }
+  
+  /* Botões do header (ENTRAR, ADMIN, WHATSAPP) */
+  header .header-actions,
+  header .nav-btns {
+    display: flex !important;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  header .header-actions button,
+  header .nav-btns button,
+  header .header-actions a,
+  header .nav-btns a {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+  
+  /* Menu mobile hamburger - MOSTRAR */
+  .mob-menu-btn {
+    display: block !important;
+    background: var(--acc);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Menu lateral mobile */
+  #mobMenu {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  #mobMenu a {
+    padding: 16px 20px !important;
+    font-size: 16px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  /* ─── HERO/BANNER PRINCIPAL ────────────────────────────────────── */
+  
   .hero {
+    padding: 40px 20px !important;
+    text-align: center;
+    min-height: auto !important;
+  }
+  
+  /* Eyebrow (texto verde no topo) */
+  #hEyebrow,
+  .hero .eyebrow {
+    font-size: 11px !important;
+    padding: 6px 12px !important;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-align: center;
+    max-width: 90%;
+    word-wrap: break-word;
+    line-height: 1.3;
+  }
+  
+  /* Títulos principais */
+  .hero h1,
+  .hero .htitle {
+    font-size: 32px !important;
+    line-height: 1.1;
+    margin: 10px 0;
+  }
+  
+  #hT1 { font-size: 28px !important; }
+  #hT2 { font-size: 36px !important; }
+  #hT3 { font-size: 28px !important; color: rgba(255,255,255,0.4); }
+  
+  /* Subtítulo */
+  #hSub,
+  .hero .hsub {
+    font-size: 13px !important;
+    line-height: 1.5;
+    margin: 15px 0 25px;
+    padding: 0 10px;
+  }
+  
+  /* Botões do hero */
+  .hero-btns,
+  .hero .hbtns {
+    flex-direction: column !important;
+    gap: 12px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .hero-btns button,
+  .hero-btns a,
+  .hero .hbtns button,
+  .hero .hbtns a {
+    width: 100% !important;
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+  }
+  
+  /* ─── CARD LATERAL DO PRODUTO (hero-card) ──────────────────────── */
+  
+  .hero-card,
+  .hcard {
+    position: static !important; /* Remove posicionamento absoluto */
+    margin: 30px auto 0 !important;
+    width: 90% !important;
+    max-width: 280px !important;
+    transform: none !important;
+  }
+  
+  /* ─── ESTATÍSTICAS (10 PRODUTOS, 100% ORIGINAIS) ───────────────── */
+  
+  .hero-stats,
+  .hstats {
+    flex-direction: row !important;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 40px !important;
+    padding: 0 20px;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-num {
+    font-size: 28px !important;
+  }
+  
+  .stat-label {
+    font-size: 11px !important;
+  }
+  
+  /* ─── SEÇÃO DE PROMOÇÃO ────────────────────────────────────────── */
+  
+  .promo-section {
     padding: 40px 20px !important;
     text-align: center;
   }
   
-  .hero h1 {
-    font-size: 28px !important;
-    line-height: 1.2;
+  .promo-section h2 {
+    font-size: 24px !important;
   }
   
-  .hero p {
-    font-size: 14px !important;
-  }
+  /* ─── CATEGORIAS ───────────────────────────────────────────────── */
   
-  /* Navegação mobile */
-  nav {
-    padding: 10px 15px !important;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  nav li {
-    width: 100%;
-  }
-  
-  nav a {
-    display: block;
-    padding: 12px !important;
-    font-size: 16px !important;
-  }
-  
-  /* Grid de produtos */
-  .fav-grid,
-  #prodsGrid,
-  #homeFeatured,
   #homeCats {
-    grid-template-columns: 1fr !important; /* 1 coluna só */
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas */
+    gap: 12px !important;
+    padding: 20px 15px !important;
+  }
+  
+  .cat-card {
+    padding: 20px 12px !important;
+  }
+  
+  .cat-e {
+    font-size: 32px !important;
+  }
+  
+  .cat-n {
+    font-size: 13px !important;
+  }
+  
+  .cat-q {
+    font-size: 11px !important;
+  }
+  
+  /* ─── GRID DE PRODUTOS ─────────────────────────────────────────── */
+  
+  #homeFeatured,
+  #prodsGrid,
+  .fav-grid {
+    grid-template-columns: 1fr !important; /* 1 coluna */
     gap: 15px !important;
-    padding: 15px !important;
+    padding: 20px 15px !important;
   }
   
   /* Cards de produtos */
-  .pc,
-  .cat-card {
+  .pc {
     margin: 0 !important;
     padding: 15px !important;
   }
   
+  .pimg {
+    height: 200px !important;
+  }
+  
   .pname {
     font-size: 15px !important;
+    line-height: 1.3;
+  }
+  
+  .pbrand {
+    font-size: 12px !important;
   }
   
   .pprice {
-    font-size: 18px !important;
+    font-size: 20px !important;
+    margin: 10px 0;
   }
   
-  /* Botões */
-  button,
-  .btn,
   .btn-wac {
-    padding: 12px 20px !important;
-    font-size: 15px !important;
-    width: 100%;
-    margin: 5px 0;
-  }
-  
-  /* Formulários */
-  input,
-  textarea,
-  select {
     width: 100% !important;
     padding: 12px !important;
-    font-size: 16px !important; /* 16px previne zoom no iOS */
-    margin-bottom: 10px;
+    font-size: 14px !important;
   }
   
-  /* Sidebar de filtros */
+  /* ─── PÁGINA DE PRODUTOS (com sidebar) ─────────────────────────── */
+  
+  .prod-layout {
+    flex-direction: column !important;
+  }
+  
   .sidebar {
-    display: none; /* Esconde sidebar em mobile */
+    width: 100% !important;
+    position: static !important;
+    margin-bottom: 20px;
+    padding: 15px !important;
   }
   
   .main-content {
     width: 100% !important;
-    padding: 10px !important;
+    padding: 0 15px !important;
   }
   
-  /* Página de produto individual */
-  #page-produto .product-detail {
+  /* ─── PÁGINA DE PRODUTO INDIVIDUAL ─────────────────────────────── */
+  
+  .product-detail,
+  .dpwrap {
     flex-direction: column !important;
-    padding: 15px !important;
+    padding: 20px 15px !important;
+  }
+  
+  .dp-left,
+  .dp-right {
+    width: 100% !important;
   }
   
   #dpImg {
-    width: 100% !important;
-    height: 250px !important;
+    height: 280px !important;
     margin-bottom: 20px;
+  }
+  
+  #dpPrice {
+    font-size: 28px !important;
+  }
+  
+  .qty-selector {
+    justify-content: center;
+    margin: 15px 0;
   }
   
   /* Tabela nutricional */
@@ -504,151 +670,172 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
     font-size: 12px !important;
     display: block;
     overflow-x: auto;
-    white-space: nowrap;
   }
   
-  /* Modal/Overlay */
+  /* ─── RODAPÉ ───────────────────────────────────────────────────── */
+  
+  footer {
+    padding: 40px 20px 20px !important;
+  }
+  
+  .footer-cols {
+    flex-direction: column !important;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .fcol {
+    width: 100% !important;
+  }
+  
+  .fcol h4 {
+    font-size: 14px !important;
+    margin-bottom: 12px;
+  }
+  
+  .fcol ul li {
+    margin: 8px 0;
+  }
+  
+  .fcol ul li a {
+    font-size: 13px !important;
+  }
+  
+  #footCats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    text-align: left;
+  }
+  
+  /* ─── FORMULÁRIOS E INPUTS ──────────────────────────────────────── */
+  
+  input,
+  textarea,
+  select {
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 16px !important; /* 16px previne zoom automático no iOS */
+    margin-bottom: 10px;
+  }
+  
+  button,
+  .btn {
+    padding: 12px 20px !important;
+    font-size: 15px !important;
+  }
+  
+  /* ─── MODAIS E OVERLAYS ─────────────────────────────────────────── */
+  
   .modal-content,
   #apanel {
     width: 95% !important;
     max-width: 95% !important;
-    margin: 10px auto !important;
-    padding: 20px !important;
+    max-height: 90vh !important;
+    margin: 20px auto !important;
+    padding: 20px 15px !important;
+    overflow-y: auto;
   }
   
-  /* Painel admin */
+  /* ─── PAINEL ADMIN ──────────────────────────────────────────────── */
+  
   .atabs {
-    flex-wrap: wrap;
+    overflow-x: auto;
+    flex-wrap: nowrap;
     gap: 5px;
   }
   
   .atab {
     font-size: 12px !important;
     padding: 8px 12px !important;
+    white-space: nowrap;
   }
   
-  /* Footer */
-  footer {
-    padding: 30px 15px !important;
-    text-align: center;
-  }
-  
-  .footer-cols {
+  .apitem {
     flex-direction: column !important;
-    gap: 20px;
+    gap: 10px;
   }
   
-  /* Menu mobile hamburger */
-  #mobMenu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: var(--bg);
-    box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-    transition: right 0.3s ease;
-    z-index: 9999;
-    padding: 60px 20px 20px;
-    overflow-y: auto;
+  .apthumb {
+    width: 80px !important;
+    height: 80px !important;
   }
   
-  #mobMenu.open {
-    right: 0;
-  }
+  /* ─── BREADCRUMB ────────────────────────────────────────────────── */
   
-  #mobMenu a {
-    display: block;
-    padding: 15px;
-    margin: 5px 0;
-    border-radius: 8px;
-    background: var(--card);
-    text-decoration: none;
-    color: var(--text);
-    font-size: 16px;
-  }
-  
-  /* Breadcrumb */
   .breadcrumb {
     font-size: 12px !important;
     padding: 10px 15px !important;
     overflow-x: auto;
     white-space: nowrap;
   }
+  
+  /* ─── CONTA DO USUÁRIO ──────────────────────────────────────────── */
+  
+  .acc-layout {
+    flex-direction: column !important;
+  }
+  
+  .acc-sidebar {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+  
+  .acc-main {
+    width: 100% !important;
+  }
+  
+  /* ─── AJUSTES DE TOQUE (TOUCH) ──────────────────────────────────── */
+  
+  /* Aumenta área clicável */
+  a, button, .btn, input[type="checkbox"] {
+    min-height: 44px;
+  }
+  
+  /* Remove efeito hover em dispositivos touch */
+  @media (hover: none) {
+    a:hover,
+    button:hover {
+      transform: none !important;
+    }
+    
+    a:active,
+    button:active {
+      opacity: 0.7;
+      transform: scale(0.98);
+    }
+  }
 }
 
-/* Celulares pequenos (até 480px) */
+/* ─── CELULARES PEQUENOS (até 480px) ────────────────────────────── */
 @media (max-width: 480px) {
   
-  .hero h1 {
-    font-size: 24px !important;
+  #hT2 {
+    font-size: 32px !important;
   }
   
-  .pprice {
-    font-size: 20px !important;
+  #homeCats {
+    grid-template-columns: 1fr !important; /* 1 coluna só */
   }
   
-  button,
-  .btn {
-    padding: 14px !important;
-    font-size: 16px !important;
+  .hero-card,
+  .hcard {
+    width: 95% !important;
   }
   
-  /* Cards ainda menores */
-  .pc {
-    padding: 12px !important;
-  }
-  
-  .pimg {
-    height: 180px !important;
-  }
-  
-  /* Tabelas em scroll horizontal */
   table {
     font-size: 11px !important;
   }
-  
-  /* Modais ocupam tela toda */
-  .modal-content {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 0 !important;
-  }
 }
 
-/* Landscape mobile (celular deitado) */
+/* ─── LANDSCAPE MOBILE ──────────────────────────────────────────── */
 @media (max-width: 768px) and (orientation: landscape) {
   .hero {
     padding: 30px 20px !important;
   }
   
-  .hero h1 {
-    font-size: 24px !important;
-  }
-}
-
-/* Ajustes para touch (área de toque) */
-@media (hover: none) and (pointer: coarse) {
-  
-  /* Aumenta área de toque dos botões */
-  a, button, .btn {
-    min-height: 44px; /* Tamanho mínimo Apple HIG */
-    min-width: 44px;
-  }
-  
-  /* Remove hover effects em touch */
-  a:hover,
-  button:hover,
-  .btn:hover {
-    transform: none;
-  }
-  
-  /* Feedback de toque */
-  a:active,
-  button:active,
-  .btn:active {
-    opacity: 0.7;
-    transform: scale(0.98);
+  #hT2 {
+    font-size: 28px !important;
   }
 }
 
