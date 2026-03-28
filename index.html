@@ -385,242 +385,343 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.hero-content{grid-template-columns:1fr}.hero-visual{display:none}.playout,.account-layout{grid-template-columns:1fr}.sidebar,.account-sidebar{position:static}.ctclayout,.dgrid{grid-template-columns:1fr}.vgrid,.nbar{grid-template-columns:1fr}.bgrid{grid-template-columns:1fr 1fr}.pgrd{grid-template-columns:1fr}.ahero{padding:48px 32px}.nitem{border-right:none;border-bottom:1px solid var(--line)}}
 @media(max-width:600px){.pgrid{grid-template-columns:repeat(2,1fr)}.cats-grid{grid-template-columns:repeat(2,1fr)}.bgrid{grid-template-columns:1fr}.fmain{grid-template-columns:1fr}.fbot{flex-direction:column;gap:6px;text-align:center}.fgrid,.agrid,.cgrid{grid-column:1/-1}.pinner{padding:36px 28px}.apanel{width:100vw}.fav-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:400px){.pgrid{grid-template-columns:1fr}}
+
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE RESPONSIVE - RB SUPLEMENTOS
+   🔧 CORREÇÃO MOBILE RESPONSIVO - RB SUPLEMENTOS
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Ajustes gerais mobile */
+/* ─── RESET GLOBAL PARA MOBILE ───────────────────────────────────── */
+* {
+  box-sizing: border-box; /* Garante que padding não estoura elementos */
+}
+
+body {
+  overflow-x: hidden; /* Remove scroll horizontal */
+  width: 100%;
+}
+
+img {
+  max-width: 100%; /* Imagens nunca maiores que container */
+  height: auto;
+}
+
+/* ─── TABLETS E CELULARES (até 768px) ────────────────────────────── */
 @media (max-width: 768px) {
   
-  /* ─── HEADER/NAVEGAÇÃO ─────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 1. HEADER/NAVEGAÇÃO                                              */
+  /* ─────────────────────────────────────────────────────────────── */
   
   header {
-    padding: 10px 15px !important;
+    padding: 12px 15px !important;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
-  /* Logo menor no mobile */
-  header .logo {
-    font-size: 18px !important;
+  /* Logo */
+  header .logo,
+  header h1 {
+    font-size: 20px !important;
+    margin: 0;
   }
   
-  /* Menu desktop - ESCONDER no mobile */
-  header nav ul {
-    display: none !important;
-  }
-  
-  /* Botões do header (ENTRAR, ADMIN, WHATSAPP) */
-  header .header-actions,
-  header .nav-btns {
-    display: flex !important;
+  /* Botões do header (DAVI, ADMIN) */
+  header .nav-btns,
+  header .user-btns {
+    display: flex;
     gap: 8px;
     flex-wrap: wrap;
   }
   
-  header .header-actions button,
-  header .nav-btns button,
-  header .header-actions a,
-  header .nav-btns a {
-    padding: 8px 12px !important;
-    font-size: 12px !important;
+  #navUserBtn,
+  #navAdmBtn {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
     white-space: nowrap;
   }
   
-  /* Menu mobile hamburger - MOSTRAR */
-  .mob-menu-btn {
-    display: block !important;
-    background: var(--acc);
-    border: none;
-    color: white;
-    font-size: 24px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
+  /* Esconde menu desktop */
+  header nav > ul {
+    display: none !important;
   }
   
-  /* Menu lateral mobile */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 2. MENU MOBILE LATERAL (#mobMenu)                                */
+  /* ─────────────────────────────────────────────────────────────── */
+  
   #mobMenu {
-    display: flex !important;
-    flex-direction: column;
-    gap: 0;
+    width: 85% !important; /* Ocupa 85% da tela */
+    max-width: 320px !important;
+    padding: 80px 0 20px !important; /* Espaço do topo para não cobrir header */
+    background: #1a1a1a !important;
   }
   
   #mobMenu a {
-    padding: 16px 20px !important;
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 24px !important;
     font-size: 16px !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.2s;
   }
   
-  /* ─── HERO/BANNER PRINCIPAL ────────────────────────────────────── */
+  #mobMenu a:hover,
+  #mobMenu a:active {
+    background: rgba(255,255,255,0.05);
+  }
   
-  .hero {
-    padding: 40px 20px !important;
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 3. HERO/BANNER PRINCIPAL                                          */
+  /* ─────────────────────────────────────────────────────────────── */
+  
+  .hero,
+  section.hero {
+    padding: 60px 20px 40px !important;
     text-align: center;
     min-height: auto !important;
+    position: relative;
   }
   
   /* Eyebrow (texto verde no topo) */
-  #hEyebrow,
-  .hero .eyebrow {
-    font-size: 11px !important;
+  .hero .eyebrow,
+  #hEyebrow {
+    font-size: 10px !important;
     padding: 6px 12px !important;
     display: inline-block;
-    margin-bottom: 15px;
-    text-align: center;
-    max-width: 90%;
-    word-wrap: break-word;
-    line-height: 1.3;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    max-width: 95%;
   }
   
   /* Títulos principais */
   .hero h1,
-  .hero .htitle {
-    font-size: 32px !important;
-    line-height: 1.1;
-    margin: 10px 0;
+  .htitle {
+    font-size: 36px !important;
+    line-height: 1.1 !important;
+    margin: 15px 0 !important;
   }
   
-  #hT1 { font-size: 28px !important; }
-  #hT2 { font-size: 36px !important; }
-  #hT3 { font-size: 28px !important; color: rgba(255,255,255,0.4); }
+  #hT1 {
+    font-size: 32px !important;
+    display: block;
+  }
+  
+  #hT2 {
+    font-size: 42px !important;
+    display: block;
+    margin: 8px 0 !important;
+  }
+  
+  #hT3 {
+    font-size: 32px !important;
+    display: block;
+    opacity: 0.4;
+  }
   
   /* Subtítulo */
-  #hSub,
-  .hero .hsub {
-    font-size: 13px !important;
-    line-height: 1.5;
-    margin: 15px 0 25px;
+  .hero .hsub,
+  #hSub {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin: 20px auto 30px !important;
+    max-width: 90%;
     padding: 0 10px;
   }
   
-  /* Botões do hero */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 4. BOTÕES DO HERO                                                 */
+  /* ─────────────────────────────────────────────────────────────── */
+  
   .hero-btns,
-  .hero .hbtns {
+  .hbtns {
+    display: flex !important;
     flex-direction: column !important;
-    gap: 12px;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
   }
   
   .hero-btns button,
   .hero-btns a,
-  .hero .hbtns button,
-  .hero .hbtns a {
+  .hbtns button,
+  .hbtns a {
     width: 100% !important;
-    padding: 14px 20px !important;
-    font-size: 15px !important;
+    padding: 16px 24px !important;
+    font-size: 16px !important;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
   }
   
-  /* ─── CARD LATERAL DO PRODUTO (hero-card) ──────────────────────── */
+  .hero-btns button:active,
+  .hbtns button:active {
+    transform: scale(0.98);
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 5. CARD LATERAL DO PRODUTO (hero-card)                            */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .hero-card,
   .hcard {
-    position: static !important; /* Remove posicionamento absoluto */
-    margin: 30px auto 0 !important;
+    position: static !important; /* Remove position absolute */
+    margin: 40px auto 0 !important;
     width: 90% !important;
-    max-width: 280px !important;
+    max-width: 300px !important;
     transform: none !important;
+    right: auto !important;
+    top: auto !important;
   }
   
-  /* ─── ESTATÍSTICAS (10 PRODUTOS, 100% ORIGINAIS) ───────────────── */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 6. ESTATÍSTICAS (10 PRODUTOS / 100% ORIGINAIS)                    */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .hero-stats,
   .hstats {
+    display: flex !important;
     flex-direction: row !important;
-    justify-content: space-around;
-    gap: 20px;
-    margin-top: 40px !important;
-    padding: 0 20px;
+    justify-content: space-around !important;
+    gap: 30px !important;
+    margin-top: 50px !important;
+    padding: 0 20px !important;
   }
   
   .stat-item {
     text-align: center;
+    flex: 1;
   }
   
-  .stat-num {
-    font-size: 28px !important;
+  .stat-num,
+  .stat-item .num {
+    font-size: 36px !important;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
   }
   
-  .stat-label {
-    font-size: 11px !important;
+  .stat-label,
+  .stat-item .label {
+    font-size: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
   }
   
-  /* ─── SEÇÃO DE PROMOÇÃO ────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 7. SEÇÃO DE PROMOÇÃO                                              */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .promo-section {
-    padding: 40px 20px !important;
+    padding: 50px 20px !important;
     text-align: center;
   }
   
   .promo-section h2 {
-    font-size: 24px !important;
+    font-size: 26px !important;
+    line-height: 1.3;
   }
   
-  /* ─── CATEGORIAS ───────────────────────────────────────────────── */
+  .promo-section p {
+    font-size: 14px !important;
+    margin: 15px 0;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 8. GRID DE CATEGORIAS                                             */
+  /* ─────────────────────────────────────────────────────────────── */
   
   #homeCats {
     grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas */
     gap: 12px !important;
-    padding: 20px 15px !important;
+    padding: 30px 15px !important;
   }
   
   .cat-card {
-    padding: 20px 12px !important;
+    padding: 24px 16px !important;
+    text-align: center;
   }
   
   .cat-e {
-    font-size: 32px !important;
+    font-size: 40px !important;
+    margin-bottom: 10px;
   }
   
   .cat-n {
-    font-size: 13px !important;
+    font-size: 14px !important;
+    font-weight: 600;
+    margin-bottom: 4px;
   }
   
   .cat-q {
-    font-size: 11px !important;
+    font-size: 12px !important;
+    opacity: 0.6;
   }
   
-  /* ─── GRID DE PRODUTOS ─────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 9. GRID DE PRODUTOS                                               */
+  /* ─────────────────────────────────────────────────────────────── */
   
   #homeFeatured,
   #prodsGrid,
   .fav-grid {
     grid-template-columns: 1fr !important; /* 1 coluna */
-    gap: 15px !important;
-    padding: 20px 15px !important;
+    gap: 20px !important;
+    padding: 30px 15px !important;
   }
   
   /* Cards de produtos */
   .pc {
+    width: 100% !important;
     margin: 0 !important;
-    padding: 15px !important;
+    padding: 16px !important;
   }
   
   .pimg {
-    height: 200px !important;
+    height: 220px !important;
+    margin-bottom: 12px;
+  }
+  
+  .pcat {
+    font-size: 11px !important;
+    margin-bottom: 6px;
   }
   
   .pname {
-    font-size: 15px !important;
+    font-size: 16px !important;
     line-height: 1.3;
+    margin-bottom: 6px;
   }
   
   .pbrand {
     font-size: 12px !important;
+    margin-bottom: 8px;
+  }
+  
+  .pdesc {
+    font-size: 13px !important;
+    line-height: 1.5;
+    margin: 10px 0;
   }
   
   .pprice {
-    font-size: 20px !important;
-    margin: 10px 0;
+    font-size: 22px !important;
+    font-weight: 700;
+    margin: 12px 0;
   }
   
   .btn-wac {
     width: 100% !important;
-    padding: 12px !important;
-    font-size: 14px !important;
+    padding: 14px !important;
+    font-size: 15px !important;
   }
   
-  /* ─── PÁGINA DE PRODUTOS (com sidebar) ─────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 10. PÁGINA DE PRODUTOS (sidebar + grid)                           */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .prod-layout {
     flex-direction: column !important;
@@ -630,15 +731,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
     width: 100% !important;
     position: static !important;
     margin-bottom: 20px;
-    padding: 15px !important;
+    padding: 20px 15px !important;
   }
   
   .main-content {
     width: 100% !important;
-    padding: 0 15px !important;
+    padding: 0 !important;
   }
   
-  /* ─── PÁGINA DE PRODUTO INDIVIDUAL ─────────────────────────────── */
+  /* Filtros */
+  .filter-section {
+    margin-bottom: 20px;
+  }
+  
+  .filter-section h3 {
+    font-size: 14px !important;
+  }
+  
+  .fopt {
+    font-size: 13px !important;
+    padding: 8px 0;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 11. PÁGINA DE PRODUTO INDIVIDUAL                                  */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .product-detail,
   .dpwrap {
@@ -652,17 +769,43 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
   }
   
   #dpImg {
-    height: 280px !important;
+    width: 100% !important;
+    height: 300px !important;
     margin-bottom: 20px;
   }
   
+  #dpTitle,
+  #dpName {
+    font-size: 22px !important;
+    line-height: 1.3;
+  }
+  
   #dpPrice {
-    font-size: 28px !important;
+    font-size: 32px !important;
+    margin: 15px 0;
+  }
+  
+  #dpPix {
+    font-size: 13px !important;
   }
   
   .qty-selector {
     justify-content: center;
+    margin: 20px 0;
+  }
+  
+  /* Opções (sabores, tamanhos) */
+  #dpFlavors,
+  #dpSizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin: 15px 0;
+  }
+  
+  .obtn {
+    padding: 10px 16px !important;
+    font-size: 13px !important;
   }
   
   /* Tabela nutricional */
@@ -670,17 +813,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
     font-size: 12px !important;
     display: block;
     overflow-x: auto;
+    width: 100%;
   }
   
-  /* ─── RODAPÉ ───────────────────────────────────────────────────── */
+  table th,
+  table td {
+    padding: 8px 6px !important;
+    white-space: nowrap;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 12. RODAPÉ                                                         */
+  /* ─────────────────────────────────────────────────────────────── */
   
   footer {
-    padding: 40px 20px 20px !important;
+    padding: 50px 20px 30px !important;
   }
   
   .footer-cols {
     flex-direction: column !important;
-    gap: 30px;
+    gap: 35px !important;
     text-align: center;
   }
   
@@ -689,88 +841,147 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
   }
   
   .fcol h4 {
-    font-size: 14px !important;
-    margin-bottom: 12px;
+    font-size: 15px !important;
+    margin-bottom: 15px;
   }
   
-  .fcol ul li {
-    margin: 8px 0;
+  .fcol ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   
   .fcol ul li a {
-    font-size: 13px !important;
+    font-size: 14px !important;
+    padding: 8px 0;
+    display: inline-block;
   }
   
+  /* Categorias no rodapé - 2 colunas */
   #footCats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    text-align: left;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    text-align: left !important;
+    max-width: 400px;
+    margin: 0 auto;
   }
   
-  /* ─── FORMULÁRIOS E INPUTS ──────────────────────────────────────── */
+  #footCats li {
+    margin: 0 !important;
+  }
+  
+  #footCats li a {
+    display: block;
+    padding: 10px !important;
+    font-size: 13px !important;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  
+  #footCats li a:hover {
+    background: rgba(255,255,255,0.08);
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 13. FORMULÁRIOS E INPUTS                                          */
+  /* ─────────────────────────────────────────────────────────────── */
   
   input,
   textarea,
   select {
     width: 100% !important;
-    padding: 12px !important;
-    font-size: 16px !important; /* 16px previne zoom automático no iOS */
-    margin-bottom: 10px;
+    padding: 14px !important;
+    font-size: 16px !important; /* 16px previne zoom no iOS */
+    margin-bottom: 12px;
+    border-radius: 8px;
   }
   
   button,
   .btn {
-    padding: 12px 20px !important;
-    font-size: 15px !important;
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+    border-radius: 8px;
+    cursor: pointer;
   }
   
-  /* ─── MODAIS E OVERLAYS ─────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 14. MODAIS E OVERLAYS                                             */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .modal-content,
   #apanel {
     width: 95% !important;
     max-width: 95% !important;
-    max-height: 90vh !important;
-    margin: 20px auto !important;
-    padding: 20px 15px !important;
+    max-height: 85vh !important;
+    margin: 30px auto !important;
+    padding: 25px 20px !important;
     overflow-y: auto;
+    border-radius: 12px;
   }
   
-  /* ─── PAINEL ADMIN ──────────────────────────────────────────────── */
+  .modal-content h2,
+  #apanel h2 {
+    font-size: 20px !important;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 15. PAINEL ADMIN                                                  */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .atabs {
     overflow-x: auto;
-    flex-wrap: nowrap;
-    gap: 5px;
+    flex-wrap: nowrap !important;
+    gap: 6px;
+    padding-bottom: 10px;
   }
   
   .atab {
-    font-size: 12px !important;
-    padding: 8px 12px !important;
+    font-size: 13px !important;
+    padding: 10px 16px !important;
     white-space: nowrap;
+    flex-shrink: 0;
   }
   
   .apitem {
     flex-direction: column !important;
-    gap: 10px;
+    align-items: flex-start !important;
+    gap: 12px;
+    padding: 15px !important;
   }
   
   .apthumb {
-    width: 80px !important;
-    height: 80px !important;
+    width: 100px !important;
+    height: 100px !important;
   }
   
-  /* ─── BREADCRUMB ────────────────────────────────────────────────── */
+  .apactions {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .apactions button {
+    flex: 1;
+    font-size: 13px !important;
+    padding: 10px !important;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 16. BREADCRUMB                                                    */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .breadcrumb {
     font-size: 12px !important;
-    padding: 10px 15px !important;
+    padding: 12px 15px !important;
     overflow-x: auto;
     white-space: nowrap;
   }
   
-  /* ─── CONTA DO USUÁRIO ──────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 17. PÁGINA DE CONTA                                               */
+  /* ─────────────────────────────────────────────────────────────── */
   
   .acc-layout {
     flex-direction: column !important;
@@ -781,61 +992,138 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
     margin-bottom: 20px;
   }
   
+  .acc-item {
+    padding: 14px !important;
+    font-size: 15px !important;
+  }
+  
   .acc-main {
     width: 100% !important;
+    padding: 20px 15px !important;
   }
   
-  /* ─── AJUSTES DE TOQUE (TOUCH) ──────────────────────────────────── */
+  .order-card {
+    padding: 16px !important;
+    margin-bottom: 15px;
+  }
   
-  /* Aumenta área clicável */
-  a, button, .btn, input[type="checkbox"] {
+  .oitems-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .othumb {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 18. AJUSTES DE TOQUE (TOUCH DEVICES)                              */
+  /* ─────────────────────────────────────────────────────────────── */
+  
+  /* Aumenta área de toque para 44x44px (padrão Apple) */
+  a,
+  button,
+  .btn,
+  input[type="checkbox"],
+  input[type="radio"] {
     min-height: 44px;
+    min-width: 44px;
   }
   
-  /* Remove efeito hover em dispositivos touch */
-  @media (hover: none) {
+  /* Remove hover em dispositivos touch */
+  @media (hover: none) and (pointer: coarse) {
     a:hover,
-    button:hover {
+    button:hover,
+    .btn:hover {
       transform: none !important;
+      opacity: 1 !important;
     }
     
+    /* Feedback de toque */
     a:active,
-    button:active {
+    button:active,
+    .btn:active {
       opacity: 0.7;
-      transform: scale(0.98);
+      transform: scale(0.97);
     }
+  }
+  
+  /* ─────────────────────────────────────────────────────────────── */
+  /* 19. UTILITÁRIOS                                                   */
+  /* ─────────────────────────────────────────────────────────────── */
+  
+  /* Esconde elementos desnecessários no mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  /* Mostra apenas no mobile */
+  .show-mobile {
+    display: block !important;
+  }
+  
+  /* Texto centralizado */
+  .text-center-mobile {
+    text-align: center !important;
+  }
+  
+  /* Padding responsivo */
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
   }
 }
 
 /* ─── CELULARES PEQUENOS (até 480px) ────────────────────────────── */
 @media (max-width: 480px) {
   
+  #hT1 {
+    font-size: 28px !important;
+  }
+  
+  #hT2 {
+    font-size: 36px !important;
+  }
+  
+  #hT3 {
+    font-size: 28px !important;
+  }
+  
+  /* Categorias: 1 coluna só */
+  #homeCats {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Rodapé categorias: 1 coluna */
+  #footCats {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Estatísticas empilhadas */
+  .hero-stats,
+  .hstats {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  
+  .stat-num {
+    font-size: 42px !important;
+  }
+}
+
+/* ─── LANDSCAPE (celular deitado) ───────────────────────────────── */
+@media (max-width: 896px) and (orientation: landscape) {
+  .hero {
+    padding: 40px 20px !important;
+  }
+  
   #hT2 {
     font-size: 32px !important;
   }
   
-  #homeCats {
-    grid-template-columns: 1fr !important; /* 1 coluna só */
-  }
-  
-  .hero-card,
-  .hcard {
-    width: 95% !important;
-  }
-  
-  table {
-    font-size: 11px !important;
-  }
-}
-
-/* ─── LANDSCAPE MOBILE ──────────────────────────────────────────── */
-@media (max-width: 768px) and (orientation: landscape) {
-  .hero {
-    padding: 30px 20px !important;
-  }
-  
-  #hT2 {
-    font-size: 28px !important;
+  .hero-stats {
+    margin-top: 30px !important;
   }
 }
 
