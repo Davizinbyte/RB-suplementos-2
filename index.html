@@ -1412,5 +1412,28 @@ window.addEventListener('load', function() {
   updateUserNav();
   loadPublicData();
 });
+function go(page) {
+  var pages = ['home', 'produtos', 'produto', 'sobre', 'contato', 'account'];
+  pages.forEach(function(p) {
+    var el = document.getElementById(p + 'Page');
+    if (el) el.classList.remove('active');
+  });
+  var target = document.getElementById(page + 'Page');
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  document.querySelectorAll('[id^="nl-"]').forEach(function(link) {
+    link.classList.remove('on');
+  });
+  var activeLink = document.getElementById('nl-' + page);
+  if (activeLink) activeLink.classList.add('on');
+  
+  if (page === 'home') renderHome();
+  if (page === 'produtos') renderProdsPage(prods);
+  if (page === 'contato') renderCtcInfo();
+  if (page === 'account' && curClient) accPanel('pedidos');
+}
+
 </script>
 </body></html>
