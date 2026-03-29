@@ -381,759 +381,223 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;background:rgba(
 @keyframes wap{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 .wa-btn:hover{transform:scale(1.15)!important;animation:none}
 /* RESPONSIVE */
-@media(max-width:1100px){.pgrid{grid-template-columns:repeat(3,1fr)}.cats-grid{grid-template-columns:repeat(3,1fr)}.fmain{grid-template-columns:1fr 1fr;gap:32px}}
-@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.hero-content{grid-template-columns:1fr}.hero-visual{display:none}.playout,.account-layout{grid-template-columns:1fr}.sidebar,.account-sidebar{position:static}.ctclayout,.dgrid{grid-template-columns:1fr}.vgrid,.nbar{grid-template-columns:1fr}.bgrid{grid-template-columns:1fr 1fr}.pgrd{grid-template-columns:1fr}.ahero{padding:48px 32px}.nitem{border-right:none;border-bottom:1px solid var(--line)}}
-@media(max-width:600px){.pgrid{grid-template-columns:repeat(2,1fr)}.cats-grid{grid-template-columns:repeat(2,1fr)}.bgrid{grid-template-columns:1fr}.fmain{grid-template-columns:1fr}.fbot{flex-direction:column;gap:6px;text-align:center}.fgrid,.agrid,.cgrid{grid-column:1/-1}.pinner{padding:36px 28px}.apanel{width:100vw}.fav-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:400px){.pgrid{grid-template-columns:1fr}}
-
-/* ═══════════════════════════════════════════════════════════════════
-   🔧 CORREÇÃO MOBILE RESPONSIVO - RB SUPLEMENTOS
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* ─── RESET GLOBAL PARA MOBILE ───────────────────────────────────── */
-* {
-  box-sizing: border-box; /* Garante que padding não estoura elementos */
+@media(max-width:1100px){
+  .pgrid{grid-template-columns:repeat(3,1fr)}
+  .cats-grid{grid-template-columns:repeat(3,1fr)}
+  .fmain{grid-template-columns:1fr 1fr;gap:32px}
 }
 
-body {
-  overflow-x: hidden; /* Remove scroll horizontal */
-  width: 100%;
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-content{grid-template-columns:1fr;padding:50px 20px}
+  .hero-visual{display:none}
+  .playout,.account-layout{grid-template-columns:1fr}
+  .sidebar,.account-sidebar{position:static}
+  .ctclayout,.dgrid{grid-template-columns:1fr}
+  .vgrid{grid-template-columns:1fr}
+  .nbar{grid-template-columns:repeat(2,1fr)}
+  .bgrid{grid-template-columns:1fr 1fr}
+  .pgrd{grid-template-columns:1fr;text-align:center}
+  .pgrd .btn-promo{width:100%;justify-content:center}
+  .ahero{padding:48px 32px}
+  .nitem{border-right:none;border-bottom:1px solid var(--line)}
+  .dimg-wrap{position:static}
 }
 
-img {
-  max-width: 100%; /* Imagens nunca maiores que container */
-  height: auto;
+@media(max-width:768px){
+  /* ── GERAL ── */
+  body{overflow-x:hidden}
+  .wrap{padding:0 16px}
+  .sec{padding:60px 0}
+  .h2{font-size:clamp(28px,8vw,44px)}
+
+  /* ── NAV ── */
+  nav{height:64px}
+  .nav-inner{padding:0 14px;gap:8px}
+  .logo{font-size:22px;letter-spacing:2px}
+  .nav-right{gap:4px}
+  .nbtn{padding:6px 10px;font-size:10px;gap:4px}
+  .nbtn.nwa{padding:6px 12px}
+  .page{padding-top:64px}
+
+  /* ── MOB MENU ── */
+  .mob-menu{top:64px;padding:16px}
+  .mob-menu a{font-size:15px;padding:12px 0}
+
+  /* ── HERO ── */
+  .hero{min-height:auto;padding:0}
+  .hero-content{padding:40px 16px 50px;gap:30px}
+  .hero-eye{font-size:10px;padding:5px 12px;letter-spacing:1.5px;text-align:center;justify-content:center}
+  .ht1,.ht2,.ht3{font-size:clamp(44px,13vw,72px);letter-spacing:-1px}
+  .hero-sub{font-size:14px;max-width:100%;margin-bottom:28px}
+  .hero-cta{flex-direction:column;gap:10px}
+  .hero-cta .btn{width:100%;justify-content:center;padding:16px 24px;font-size:14px}
+  .hero-stats{flex-direction:row;border-radius:10px}
+  .hstat{padding:14px 12px}
+  .hstat-n{font-size:26px}
+  .hstat-l{font-size:9px;letter-spacing:1px}
+
+  /* ── MARQUEE ── */
+  .mqwrap{padding:10px 0}
+  .mqi{padding:0 16px;font-size:11px;gap:10px}
+
+  /* ── CATEGORIES ── */
+  .cats-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .cat-card{padding:18px 12px}
+  .cat-e{font-size:28px;margin-bottom:8px}
+  .cat-n{font-size:13px}
+
+  /* ── PRODUCTS GRID ── */
+  .pgrid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .pimg{height:160px}
+  .pbody{padding:14px}
+  .pname{font-size:14px}
+  .pprice{font-size:22px;margin-bottom:10px}
+  .btn-wac{padding:10px 12px;font-size:11px}
+  .pbadge{font-size:9px;padding:3px 8px;top:8px;left:8px}
+  .fav-btn{width:28px;height:28px;font-size:12px;top:8px;right:8px}
+
+  /* ── SECTION HEADERS (entre titulo e "Ver todos") ── */
+  div[style*="display:flex;justify-content:space-between"]{
+    flex-direction:column;align-items:flex-start!important;gap:16px;margin-bottom:32px!important
+  }
+
+  /* ── BENEFITS BAR ── */
+  .bgrid{grid-template-columns:1fr}
+  .bitem{padding:24px 20px;border-right:none;border-bottom:1px solid var(--line)}
+  .bitem:last-child{border-bottom:none}
+  .bicon{width:40px;height:40px;font-size:18px;margin-bottom:12px}
+  .btitle{font-size:16px}
+  .bdesc{font-size:12px}
+
+  /* ── PROMO BANNER ── */
+  .pwrap{padding:0 16px}
+  .pinner{padding:32px 20px;border-radius:14px}
+  .pinner::after{font-size:80px;right:-20px;bottom:-10px}
+  .pgrd{gap:20px;text-align:center}
+  .ptitle{font-size:clamp(26px,7vw,36px)}
+  .pdescr{font-size:13px}
+  .btn-promo{width:100%;justify-content:center;padding:16px 24px;font-size:13px}
+
+  /* ── ABOUT ── */
+  .ahero{padding:32px 20px;border-radius:14px}
+  .ahero::after{font-size:120px;right:-10px}
+  .ahero p{font-size:14px}
+  .vgrid{grid-template-columns:1fr;gap:14px}
+  .vcard{padding:24px 20px}
+  .vt{font-size:18px}
+  .nbar{grid-template-columns:repeat(2,1fr);border-radius:12px}
+  .nitem{padding:28px 16px}
+  .nval{font-size:36px}
+  .nlab{font-size:10px}
+
+  /* ── CONTACT ── */
+  .ctclayout{grid-template-columns:1fr;gap:28px}
+  .ctcitem{padding:16px}
+  .ctcicon{width:38px;height:38px;font-size:18px}
+  .fblock{padding:20px}
+  .fgrid{grid-template-columns:1fr}
+  .ffield{grid-column:auto}
+  .inp{padding:11px 14px;font-size:13px}
+
+  /* ── DETAIL PAGE ── */
+  .dgrid{grid-template-columns:1fr;gap:32px;padding-top:24px}
+  .dimg-wrap{position:static}
+  .dimg{border-radius:14px;aspect-ratio:1}
+  .dname{font-size:clamp(28px,7vw,40px)}
+  .dprice{font-size:44px}
+  .orow{gap:6px}
+  .obtn{padding:8px 14px;font-size:12px}
+  .qty-row{flex-wrap:wrap;gap:10px}
+  .detail-btns .btn{font-size:14px!important;padding:16px!important}
+
+  /* ── ACCOUNT ── */
+  .account-layout{grid-template-columns:1fr;gap:20px}
+  .account-sidebar{position:static;display:grid;grid-template-columns:repeat(2,1fr);border-radius:12px}
+  .acc-item{padding:12px 14px;font-size:12px;gap:8px;justify-content:center;text-align:center}
+  .acc-item:nth-child(odd){border-right:1px solid var(--line)}
+  .acc-item:last-child{grid-column:1/-1;border-right:none}
+  .aci{font-size:14px}
+  .fav-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .order-card{padding:16px}
+  .agrid{grid-template-columns:1fr}
+  .afield{grid-column:auto}
+  .cgrid{grid-template-columns:1fr}
+
+  /* ── PRODUCTS PAGE SIDEBAR ── */
+  .playout{grid-template-columns:1fr;gap:20px}
+  .sidebar{position:static;padding:20px;border-radius:12px}
+  .toolbar{flex-direction:column;gap:10px;align-items:stretch}
+  .sortsel{width:100%}
+
+  /* ── FOOTER ── */
+  .fmain{grid-template-columns:1fr!important;gap:28px!important;padding:40px 16px!important}
+  .fbot{flex-direction:column;gap:8px;text-align:center;padding:16px!important}
+  .flogo{font-size:20px}
+
+  /* ── PAGE HEADER ── */
+  .phdr{padding:32px 0}
+  .phdr-inner{padding:0 16px}
+  .bc{font-size:11px}
+
+  /* ── ADMIN PANEL ── */
+  .apanel{width:100vw}
+  .ahead{padding:16px 20px}
+  .atabs{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .atab{padding:12px 14px;font-size:11px;white-space:nowrap}
+  .abody{padding:20px}
+  .agrid{grid-template-columns:1fr}
+  .apitem{grid-template-columns:52px 1fr;gap:10px}
+  .apthumb{width:52px;height:52px}
+  .apactions{flex-direction:column;gap:6px}
+  .afactions{flex-direction:column;gap:8px}
+  .afactions .btn{width:100%;justify-content:center}
+  .he-sec{padding:16px}
+  .credsec{padding:16px}
+
+  /* ── AUTH MODALS ── */
+  .cauth-box{border-radius:16px}
+  .cauth-hd{padding:22px 20px}
+  .cauth-body{padding:20px}
+  .cauth-logo{font-size:20px}
+  .btn-google{padding:12px 14px;font-size:13px}
+  .lbox{border-radius:16px}
+  .lhead{padding:24px 20px}
+  .lbody{padding:24px 20px}
+
+  /* ── MODALS ── */
+  .modal{padding:28px 20px;border-radius:16px;max-width:calc(100vw - 32px)}
+  .mtitle{font-size:22px}
+
+  /* ── TOAST ── */
+  .toast{right:16px;left:16px;max-width:none;bottom:80px}
+
+  /* ── WA FLOAT ── */
+  .wa{bottom:20px;right:16px}
+  .wa-btn{width:52px;height:52px;font-size:24px}
+  .wa-tip{display:none}
+
+  /* ── ADMIN BAR ── */
+  .abar{padding:8px 16px;flex-wrap:wrap;gap:8px}
+  .abar-label{font-size:12px}
+  .abb{padding:6px 14px;font-size:11px}
 }
 
-/* ─── TABLETS E CELULARES (até 768px) ────────────────────────────── */
-/* ═══════════════════════════════════════════════════════════════════
-   🔧 CORREÇÃO URGENTE - Esconde menu desktop no mobile
-   ═══════════════════════════════════════════════════════════════════ */
-
-@media (max-width: 768px) {
-  
-  /* Esconde completamente o menu desktop */
-  header nav,
-  header nav ul,
-  nav > ul,
-  .nav-menu,
-  .desktop-menu {
-    display: none !important;
-  }
-  
-  /* Header mobile - só logo + botões */
-  header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 12px 15px !important;
-    flex-wrap: wrap !important;
-  }
-  
-  /* Logo ocupa espaço */
-  header .logo {
-    flex: 1;
-    font-size: 18px !important;
-  }
-  
-  /* Botões do lado direito */
-  header .nav-btns,
-  header .user-btns {
-    display: flex !important;
-    gap: 8px;
-  }
+@media(max-width:400px){
+  .pgrid{grid-template-columns:1fr}
+  .cats-grid{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column}
+  .hstat{border-right:none;border-bottom:1px solid var(--line);padding:12px}
+  .hstat:last-child{border-bottom:none}
+  .nbar{grid-template-columns:1fr}
+  .account-sidebar{grid-template-columns:1fr}
+  .acc-item:nth-child(odd){border-right:none}
+  .fav-grid{grid-template-columns:1fr}
+  .nbtn span{display:none}
 }
-
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 2. MENU MOBILE LATERAL (#mobMenu)                                */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  #mobMenu {
-    width: 85% !important; /* Ocupa 85% da tela */
-    max-width: 320px !important;
-    padding: 80px 0 20px !important; /* Espaço do topo para não cobrir header */
-    background: #1a1a1a !important;
-  }
-  
-  #mobMenu a {
-    display: flex !important;
-    align-items: center;
-    gap: 12px;
-    padding: 18px 24px !important;
-    font-size: 16px !important;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    transition: background 0.2s;
-  }
-  
-  #mobMenu a:hover,
-  #mobMenu a:active {
-    background: rgba(255,255,255,0.05);
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 3. HERO/BANNER PRINCIPAL                                          */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .hero,
-  section.hero {
-    padding: 60px 20px 40px !important;
-    text-align: center;
-    min-height: auto !important;
-    position: relative;
-  }
-  
-  /* Eyebrow (texto verde no topo) */
-  .hero .eyebrow,
-  #hEyebrow {
-    font-size: 10px !important;
-    padding: 6px 12px !important;
-    display: inline-block;
-    margin-bottom: 20px;
-    line-height: 1.4;
-    max-width: 95%;
-  }
-  
-  /* Títulos principais */
-  .hero h1,
-  .htitle {
-    font-size: 36px !important;
-    line-height: 1.1 !important;
-    margin: 15px 0 !important;
-  }
-  
-  #hT1 {
-    font-size: 32px !important;
-    display: block;
-  }
-  
-  #hT2 {
-    font-size: 42px !important;
-    display: block;
-    margin: 8px 0 !important;
-  }
-  
-  #hT3 {
-    font-size: 32px !important;
-    display: block;
-    opacity: 0.4;
-  }
-  
-  /* Subtítulo */
-  .hero .hsub,
-  #hSub {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    margin: 20px auto 30px !important;
-    max-width: 90%;
-    padding: 0 10px;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 4. BOTÕES DO HERO                                                 */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .hero-btns,
-  .hbtns {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    width: 100% !important;
-    max-width: 350px !important;
-    margin: 0 auto !important;
-  }
-  
-  .hero-btns button,
-  .hero-btns a,
-  .hbtns button,
-  .hbtns a {
-    width: 100% !important;
-    padding: 16px 24px !important;
-    font-size: 16px !important;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .hero-btns button:active,
-  .hbtns button:active {
-    transform: scale(0.98);
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 5. CARD LATERAL DO PRODUTO (hero-card)                            */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .hero-card,
-  .hcard {
-    position: static !important; /* Remove position absolute */
-    margin: 40px auto 0 !important;
-    width: 90% !important;
-    max-width: 300px !important;
-    transform: none !important;
-    right: auto !important;
-    top: auto !important;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 6. ESTATÍSTICAS (10 PRODUTOS / 100% ORIGINAIS)                    */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .hero-stats,
-  .hstats {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-around !important;
-    gap: 30px !important;
-    margin-top: 50px !important;
-    padding: 0 20px !important;
-  }
-  
-  .stat-item {
-    text-align: center;
-    flex: 1;
-  }
-  
-  .stat-num,
-  .stat-item .num {
-    font-size: 36px !important;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  .stat-label,
-  .stat-item .label {
-    font-size: 12px !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 7. SEÇÃO DE PROMOÇÃO                                              */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .promo-section {
-    padding: 50px 20px !important;
-    text-align: center;
-  }
-  
-  .promo-section h2 {
-    font-size: 26px !important;
-    line-height: 1.3;
-  }
-  
-  .promo-section p {
-    font-size: 14px !important;
-    margin: 15px 0;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 8. GRID DE CATEGORIAS                                             */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  #homeCats {
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas */
-    gap: 12px !important;
-    padding: 30px 15px !important;
-  }
-  
-  .cat-card {
-    padding: 24px 16px !important;
-    text-align: center;
-  }
-  
-  .cat-e {
-    font-size: 40px !important;
-    margin-bottom: 10px;
-  }
-  
-  .cat-n {
-    font-size: 14px !important;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-  
-  .cat-q {
-    font-size: 12px !important;
-    opacity: 0.6;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 9. GRID DE PRODUTOS                                               */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  #homeFeatured,
-  #prodsGrid,
-  .fav-grid {
-    grid-template-columns: 1fr !important; /* 1 coluna */
-    gap: 20px !important;
-    padding: 30px 15px !important;
-  }
-  
-  /* Cards de produtos */
-  .pc {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 16px !important;
-  }
-  
-  .pimg {
-    height: 220px !important;
-    margin-bottom: 12px;
-  }
-  
-  .pcat {
-    font-size: 11px !important;
-    margin-bottom: 6px;
-  }
-  
-  .pname {
-    font-size: 16px !important;
-    line-height: 1.3;
-    margin-bottom: 6px;
-  }
-  
-  .pbrand {
-    font-size: 12px !important;
-    margin-bottom: 8px;
-  }
-  
-  .pdesc {
-    font-size: 13px !important;
-    line-height: 1.5;
-    margin: 10px 0;
-  }
-  
-  .pprice {
-    font-size: 22px !important;
-    font-weight: 700;
-    margin: 12px 0;
-  }
-  
-  .btn-wac {
-    width: 100% !important;
-    padding: 14px !important;
-    font-size: 15px !important;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 10. PÁGINA DE PRODUTOS (sidebar + grid)                           */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .prod-layout {
-    flex-direction: column !important;
-  }
-  
-  .sidebar {
-    width: 100% !important;
-    position: static !important;
-    margin-bottom: 20px;
-    padding: 20px 15px !important;
-  }
-  
-  .main-content {
-    width: 100% !important;
-    padding: 0 !important;
-  }
-  
-  /* Filtros */
-  .filter-section {
-    margin-bottom: 20px;
-  }
-  
-  .filter-section h3 {
-    font-size: 14px !important;
-  }
-  
-  .fopt {
-    font-size: 13px !important;
-    padding: 8px 0;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 11. PÁGINA DE PRODUTO INDIVIDUAL                                  */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .product-detail,
-  .dpwrap {
-    flex-direction: column !important;
-    padding: 20px 15px !important;
-  }
-  
-  .dp-left,
-  .dp-right {
-    width: 100% !important;
-  }
-  
-  #dpImg {
-    width: 100% !important;
-    height: 300px !important;
-    margin-bottom: 20px;
-  }
-  
-  #dpTitle,
-  #dpName {
-    font-size: 22px !important;
-    line-height: 1.3;
-  }
-  
-  #dpPrice {
-    font-size: 32px !important;
-    margin: 15px 0;
-  }
-  
-  #dpPix {
-    font-size: 13px !important;
-  }
-  
-  .qty-selector {
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  /* Opções (sabores, tamanhos) */
-  #dpFlavors,
-  #dpSizes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 15px 0;
-  }
-  
-  .obtn {
-    padding: 10px 16px !important;
-    font-size: 13px !important;
-  }
-  
-  /* Tabela nutricional */
-  table {
-    font-size: 12px !important;
-    display: block;
-    overflow-x: auto;
-    width: 100%;
-  }
-  
-  table th,
-  table td {
-    padding: 8px 6px !important;
-    white-space: nowrap;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 12. RODAPÉ                                                         */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  footer {
-    padding: 50px 20px 30px !important;
-  }
-  
-  .footer-cols {
-    flex-direction: column !important;
-    gap: 35px !important;
-    text-align: center;
-  }
-  
-  .fcol {
-    width: 100% !important;
-  }
-  
-  .fcol h4 {
-    font-size: 15px !important;
-    margin-bottom: 15px;
-  }
-  
-  .fcol ul {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .fcol ul li a {
-    font-size: 14px !important;
-    padding: 8px 0;
-    display: inline-block;
-  }
-  
-  /* Categorias no rodapé - 2 colunas */
-  #footCats {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-    text-align: left !important;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  #footCats li {
-    margin: 0 !important;
-  }
-  
-  #footCats li a {
-    display: block;
-    padding: 10px !important;
-    font-size: 13px !important;
-    background: rgba(255,255,255,0.03);
-    border-radius: 6px;
-    transition: background 0.2s;
-  }
-  
-  #footCats li a:hover {
-    background: rgba(255,255,255,0.08);
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 13. FORMULÁRIOS E INPUTS                                          */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  input,
-  textarea,
-  select {
-    width: 100% !important;
-    padding: 14px !important;
-    font-size: 16px !important; /* 16px previne zoom no iOS */
-    margin-bottom: 12px;
-    border-radius: 8px;
-  }
-  
-  button,
-  .btn {
-    padding: 14px 20px !important;
-    font-size: 16px !important;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 14. MODAIS E OVERLAYS                                             */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .modal-content,
-  #apanel {
-    width: 95% !important;
-    max-width: 95% !important;
-    max-height: 85vh !important;
-    margin: 30px auto !important;
-    padding: 25px 20px !important;
-    overflow-y: auto;
-    border-radius: 12px;
-  }
-  
-  .modal-content h2,
-  #apanel h2 {
-    font-size: 20px !important;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 15. PAINEL ADMIN                                                  */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .atabs {
-    overflow-x: auto;
-    flex-wrap: nowrap !important;
-    gap: 6px;
-    padding-bottom: 10px;
-  }
-  
-  .atab {
-    font-size: 13px !important;
-    padding: 10px 16px !important;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  
-  .apitem {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px;
-    padding: 15px !important;
-  }
-  
-  .apthumb {
-    width: 100px !important;
-    height: 100px !important;
-  }
-  
-  .apactions {
-    width: 100%;
-    display: flex;
-    gap: 8px;
-  }
-  
-  .apactions button {
-    flex: 1;
-    font-size: 13px !important;
-    padding: 10px !important;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 16. BREADCRUMB                                                    */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .breadcrumb {
-    font-size: 12px !important;
-    padding: 12px 15px !important;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 17. PÁGINA DE CONTA                                               */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  .acc-layout {
-    flex-direction: column !important;
-  }
-  
-  .acc-sidebar {
-    width: 100% !important;
-    margin-bottom: 20px;
-  }
-  
-  .acc-item {
-    padding: 14px !important;
-    font-size: 15px !important;
-  }
-  
-  .acc-main {
-    width: 100% !important;
-    padding: 20px 15px !important;
-  }
-  
-  .order-card {
-    padding: 16px !important;
-    margin-bottom: 15px;
-  }
-  
-  .oitems-row {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .othumb {
-    width: 60px !important;
-    height: 60px !important;
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 18. AJUSTES DE TOQUE (TOUCH DEVICES)                              */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  /* Aumenta área de toque para 44x44px (padrão Apple) */
-  a,
-  button,
-  .btn,
-  input[type="checkbox"],
-  input[type="radio"] {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Remove hover em dispositivos touch */
-  @media (hover: none) and (pointer: coarse) {
-    a:hover,
-    button:hover,
-    .btn:hover {
-      transform: none !important;
-      opacity: 1 !important;
-    }
-    
-    /* Feedback de toque */
-    a:active,
-    button:active,
-    .btn:active {
-      opacity: 0.7;
-      transform: scale(0.97);
-    }
-  }
-  
-  /* ─────────────────────────────────────────────────────────────── */
-  /* 19. UTILITÁRIOS                                                   */
-  /* ─────────────────────────────────────────────────────────────── */
-  
-  /* Esconde elementos desnecessários no mobile */
-  .hide-mobile {
-    display: none !important;
-  }
-  
-  /* Mostra apenas no mobile */
-  .show-mobile {
-    display: block !important;
-  }
-  
-  /* Texto centralizado */
-  .text-center-mobile {
-    text-align: center !important;
-  }
-  
-  /* Padding responsivo */
-  .container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-  }
-}
-
-/* ─── CELULARES PEQUENOS (até 480px) ────────────────────────────── */
-@media (max-width: 480px) {
-  
-  #hT1 {
-    font-size: 28px !important;
-  }
-  
-  #hT2 {
-    font-size: 36px !important;
-  }
-  
-  #hT3 {
-    font-size: 28px !important;
-  }
-  
-  /* Categorias: 1 coluna só */
-  #homeCats {
-    grid-template-columns: 1fr !important;
-  }
-  
-  /* Rodapé categorias: 1 coluna */
-  #footCats {
-    grid-template-columns: 1fr !important;
-  }
-  
-  /* Estatísticas empilhadas */
-  .hero-stats,
-  .hstats {
-    flex-direction: column !important;
-    gap: 20px !important;
-  }
-  
-  .stat-num {
-    font-size: 42px !important;
-  }
-}
-
-/* ─── LANDSCAPE (celular deitado) ───────────────────────────────── */
-@media (max-width: 896px) and (orientation: landscape) {
-  .hero {
-    padding: 40px 20px !important;
-  }
-  
-  #hT2 {
-    font-size: 32px !important;
-  }
-  
-  .hero-stats {
-    margin-top: 30px !important;
-  }
-}
-
 </style>
 </head><body>
- 
-  <div class="logo">RB SUPLEMENTOS</div>
-  
-  <button class="mob-menu-btn" onclick="toggleMob()">☰</button>
-  </div>
 <div id="g_id_onload" data-client_id="700551558544-cj8iea6octmt263an5nlos1oq0pp1gi4.apps.googleusercontent.com" data-callback="handleGoogleCredential" data-auto_prompt="false"></div>
 <nav><div class="nav-inner">
   <a class="logo" onclick="go('home')"><span class="logo-rb">RB</span>&nbsp;Suplementos</a>
@@ -2159,43 +1623,5 @@ window.addEventListener('load', function() {
   updateUserNav();
   loadPublicData();
 });
-function go(page) {
-  console.log('Navegando para:', page);
-  
-  // Esconde todas as páginas
-  var pages = ['home', 'produtos', 'produto', 'sobre', 'contato', 'account'];
-  pages.forEach(function(p) {
-    var el = document.getElementById('page-' + p);  // ← CORRIGIDO: page-home ao invés de homePage
-    if (el) el.classList.remove('active');
-  });
-  
-  // Mostra a página solicitada
-  var target = document.getElementById('page-' + page);  // ← CORRIGIDO
-  if (target) {
-    target.classList.add('active');
-    window.scrollTo(0, 0);
-  } else {
-    console.error('Página não encontrada: page-' + page);
-  }
-  
-  // Atualiza menu de navegação (marca item ativo)
-  document.querySelectorAll('[id^="nl-"]').forEach(function(link) {
-    link.classList.remove('on');
-  });
-  var activeLink = document.getElementById('nl-' + page);
-  if (activeLink) activeLink.classList.add('on');
-  
-  // Carrega conteúdo específico de cada página
-  if (page === 'home') renderHome();
-  if (page === 'produtos') renderProdsPage(prods);
-  if (page === 'contato') renderCtcInfo();
-  if (page === 'account' && curClient) accPanel('pedidos');
-  
-  // Fecha menu mobile se estiver aberto
-  var mobMenu = document.getElementById('mobMenu');
-  if (mobMenu) mobMenu.classList.remove('open');
-}
-
-
 </script>
 </body></html>
