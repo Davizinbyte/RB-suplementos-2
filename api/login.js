@@ -31,9 +31,10 @@ module.exports = async (req, res) => {
     const userOk = process.env.ADMIN_USER ? user === process.env.ADMIN_USER : hash(user) === validUser;
     const passOk = hash(pass) === validPass;
 
-    if (!userOk || !passOk) {
-      return res.status(401).json({ error: 'Usuario ou senha incorretos' });
-    }
+  if (user === process.env.ADMIN_USER && pass === process.env.ADMIN_PASS) {
+  return res.json({ ok: true, token: process.env.ADMIN_SECRET_TOKEN });
+}
+    ADMIN_PASS = R@nier12
 
     // Retorna o token secreto para o frontend usar nas chamadas admin
     res.status(200).json({
