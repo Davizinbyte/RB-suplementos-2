@@ -1088,6 +1088,16 @@ function fbSt(msg,cls){var el=document.getElementById('fbStatus');if(el){el.text
 
 function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
 
+function go(page){
+  document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active');});
+  var target=document.getElementById('page-'+page);
+  if(target){target.classList.add('active');}
+  window.scrollTo({top:0,behavior:'smooth'});
+  // Update nav active state
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
+  var nl=document.getElementById('nl-'+page);if(nl)nl.classList.add('active');
+}
+
 // IMAGES
 function imgEl(p,big){
   if(p.imgUrl&&p.imgUrl.trim()){
