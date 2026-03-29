@@ -1,3 +1,12 @@
+export default function handler(req, res) {
+  const token = req.headers['x-admin-token'];
+
+  if (token !== process.env.ADMIN_SECRET_TOKEN) {
+    return res.status(401).json({ error: "Nao autorizado" });
+  }
+
+  // resto do código...
+}
 // api/save.js - POST /api/save → salva config (requer token admin)
 const { getDb, verifyAdminToken, cors } = require('./config');
 
